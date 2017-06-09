@@ -56,9 +56,11 @@ function start(opts) {
         else if (obj.type) {
             obj.action_type = obj.type;
             type = 'docker-events';
+            obj.app_id = process.env.MARATHON_APP_ID;
         }
         else if (obj.stats) {
             type = 'docker-stats';
+            obj.app_id = process.env.MARATHON_APP_ID;
         }
         obj.host = os.hostname();
 
