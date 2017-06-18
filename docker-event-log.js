@@ -31,6 +31,7 @@ var toEmit = function toEmit(data, container) {
         labels: container.Config.Labels,
         name: name,
         host: data.from,
+        env: container.Config.ENV,
         execute: exec
     };
 };
