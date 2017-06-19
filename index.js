@@ -5,7 +5,7 @@
 var through = require('through2');
 var minimist = require('minimist');
 var allContainers = require('docker-allcontainers');
-var statsFactory = require('docker-stats');
+var statsFactory = require('./docker-stats-log');
 var logFactory = require('docker-loghose');
 var os = require('os');
 var logzioLogger = require('logzio-nodejs');
@@ -55,7 +55,7 @@ function start(opts) {
         }
         else if (obj.type) {
             obj.action_type = obj.type;
-            type = 'docker-events';            
+            type = 'docker-events';
         }
         else if (obj.stats) {
             type = 'docker-stats';
